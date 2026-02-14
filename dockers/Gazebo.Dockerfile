@@ -1,5 +1,5 @@
-FROM pytorch/pytorch:2.1.0-cuda11.8-cudnn8-devel
-ENV DEBIAN_FRONTEND noninteractive
+FROM pytorch/pytorch:2.9.0-cuda12.8-cudnn9-devel
+ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt update && apt install -y software-properties-common
 RUN add-apt-repository universe

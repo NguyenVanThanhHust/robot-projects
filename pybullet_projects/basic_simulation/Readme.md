@@ -1,0 +1,1 @@
+https://towardsdatascience.com/robotics-with-python-for-beginners/?utm_campaign=tds%20variable&utm_medium=email&_hsenc=p2ANqtz-8ytiurEF1MkOhR3rI55Bnp8mJ9_6kxGtH_DH1e-wSU3Y5Ptw6Bl3PosMAID0mI-a74uosMwTWeHPGmuY4Onk3nRFr-txQ-jXIYyqT_IaEAZTIAH_8&_hsmi=386433088&utm_source=newsletter
