@@ -1,0 +1,50 @@
+<mujoco model="really_simple_arm">
+<!-- some elements were tweaked to work in IsaacGym -->
+    <compiler angle="radian"/>  <!-- use radians to define angles -->
+    <default>
+        <!-- set default attributes to clean up XML -->
+        <!-- set two geom classes so that the nonconvex mesh can be visualized in IsaacGym -->
+        <default class="collision">
+            <geom contype="1" conaffinity="1" group="4"/>
+        </default>
+        <default class="visual">
+            <geom contype="0" conaffinity="0" group="1" mass="0"/>
+        </default>
+        <!-- convert the Fusion 360 coordinate system to MuJoCo by setting a transform with quat -->
+        <geom type="mesh" quat="0.7071068 0.7071068 0 0"/>
+        <joint type="hinge" limited="true" axis="0 1 0" damping="0.1"/>
+        <!-- kp is proportional gain, kv is damping gain -->
+        <position ctrllimited="true" kp="1"/>
+    </default>
+    <asset>
+        <!-- Fusion outputs meshes with mm units by default, but must be converted to m in MuJoCo, hence the scaling -->
+        <mesh name="base" file="base.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="link1" file="link1.stl" scale="0.001 0.001 0.001"/>
+        <mesh name="link2" file="link2.stl" scale="0.001 0.001 0.001"/>
+    </asset>
+    <worldbody>
+        <body name="base">
+            <geom class="collision" mesh="base"/>
+            <geom class="visual" mesh="base"/>
+            <body name="link1">
+                <joint name="joint_1" pos="0.1 -0.015 0.05" range="-0.78 0.78"/>
+                <geom class="collision" mesh="link1"/>
+                <geom class="visual" mesh="link1"/>
+                <body name="link2">
+                    <joint name="joint_2" pos="0.1583 -0.01 0.1994" range="-1.57 1.57"/>
+                    <geom class="collision" mesh="link2"/>
+                    <geom class="visual" mesh="link2"/>
+                </body>
+            </body>
+        </body>
+    </worldbody>
+
+    <actuator>
+        <position name="joint_1" joint="joint_1" ctrlrange="-0.78 0.78"/>
+        <position name="joint_2" joint="joint_2" ctrlrange="-1.57 1.57"/>
+    </actuator>
+    <contact>
+        <exclude body1="base" body2="link1"/>
+        <exclude body1="link1" body2="link2"/>
+    </contact>
+</mujoco>
