@@ -1,4 +1,3 @@
 # Learning theory 
-- [x] Basic sympy practice   
-- [ ] Reimplement homework from thay Nguyen Quang Hoang's Lecture    
+- [ ] https://github.com/scomup/MathematicalRobotics
 - [ ] Implement homework solution from Francis Moon's book: Applied Dynamics: With Applications to Multibody and Mechatronic Systems   
