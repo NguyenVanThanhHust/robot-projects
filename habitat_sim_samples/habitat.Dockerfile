@@ -24,6 +24,7 @@ RUN apt-get update && apt-get install -y \
     libglu1-mesa-dev \
     freeglut3-dev \
     mesa-common-dev \
+    libxrandr-dev \
     gdb valgrind && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
@@ -33,5 +34,5 @@ WORKDIR /opt/
 RUN git clone --branch stable https://github.com/facebookresearch/habitat-sim.git
 WORKDIR /opt/habitat-sim
 ENV CMAKE_ARGS="-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
-# RUN HABITAT_WITH_CUDA=ON pip install . --no-build-isolation
+RUN HABITAT_WITH_CUDA=ON pip install . --no-build-isolation
 WORKDIR /workspace/
