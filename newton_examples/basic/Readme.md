@@ -1,10 +1,9 @@
 # Basic example of newton library
 
-
-
 | File | Content | 
 |---|---|
 | basic_viewer.py | Shows how to use the Newton Viewer class to visualize various shapes and line instances without a Newton model. | 
+| recording.py | Recording happens automatically - ViewerFile captures all logged states and saves them when the viewer is closed. | 
 
 
 Here is the step-by-step summary of how you resolved the Segmentation Fault caused by the OpenGL handshake on your MSI Katana.
